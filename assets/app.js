@@ -27,6 +27,20 @@
 
   /* ---------- top bar ---------- */
   const bar = $('.topbar');
+  /* mobile menu: the nav links fold into a dropdown on small screens */
+  const navEl = $('.topbar .nav');
+  if (bar && navEl && $$('a:not(.cta)', navEl).length) {
+    const mb = document.createElement('button');
+    mb.className = 'menu-btn'; mb.type = 'button';
+    mb.setAttribute('aria-expanded', 'false'); mb.setAttribute('aria-label', 'Open menu');
+    mb.innerHTML = '<span></span><span></span>';
+    navEl.appendChild(mb);
+    const setMenu = on => { bar.classList.toggle('menu-open', on); mb.setAttribute('aria-expanded', String(on)); mb.setAttribute('aria-label', on ? 'Close menu' : 'Open menu'); };
+    mb.addEventListener('click', e => { e.stopPropagation(); setMenu(!bar.classList.contains('menu-open')); });
+    $$('a', navEl).forEach(a => a.addEventListener('click', () => setMenu(false)));
+    document.addEventListener('click', e => { if (!bar.contains(e.target)) setMenu(false); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+  }
   const onScroll = () => bar && bar.classList.toggle('scrolled', window.scrollY > 10);
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
@@ -77,7 +91,11 @@
       return ctx;
     }
     // audio can only start after a user gesture
-    const unlock = () => { const c = ensure(); if (c && c.state === 'suspended') c.resume(); };
+    const unlock = () => {
+      const c = ensure(); if (!c) return;
+      const done = () => document.dispatchEvent(new CustomEvent('sound-ready'));
+      if (c.state === 'suspended') c.resume().then(done); else done();
+    };
     ['pointerdown', 'keydown', 'touchstart'].forEach(ev => window.addEventListener(ev, unlock, { passive: true }));
     const ready = () => on && ctx && ctx.state === 'running';
 
@@ -221,7 +239,7 @@
       try { wind.stop(t + 0.9); } catch (e) {}
     }
     function setOn(v) { on = v; store.set('hj-sound', v ? '1' : '0'); if (!v) { nightStop(); stopSuspense(); } }
-    return { blip, thwip, pop, suspense, stopSuspense, nightStart, nightStop, setOn, isOn: () => on, ensure };
+    return { blip, thwip, pop, ready: () => !!ctx && ctx.state === 'running', unlock, suspense, stopSuspense, nightStart, nightStop, setOn, isOn: () => on, ensure };
   })();
 
   /* ======================================================
@@ -338,20 +356,20 @@
   }, true);
 
   /* ======================================================
-     HERO: Tiko walks on the words
+     HERO: Harry walks on the words
      ====================================================== */
   const stage = $('#stage');
   const tiko = $('#tiko');
   const bubble = $('#bubble');
   const bubbleText = $('#bubbleText');
-  const Tiko = { say() {}, sleep() {}, wake() {} };
+  const Harry = { say() {}, sleep() {}, wake() {} };
 
   const hoverLines = [
     "Click me. I answer questions about Hardik.",
     "Psst. I walk on words. Hover one and watch.",
     "Careful, I'm ticklish. And under-scoped.",
     "I'm 11 pixels tall and still ship faster than most roadmaps.",
-    "Event logged: tiko_hovered. Funnel step 1 of 1. Conversion: you.",
+    "Event logged: harry_hovered. Funnel step 1 of 1. Conversion: you.",
     "If you're a recruiter, blink twice. I'll wait.",
     "I've walked this headline all day. My feet are mostly ink now.",
     "My PRD says I should be cute here. Am I hitting the metric?",
@@ -432,7 +450,7 @@
     }
     const start = spotFor(words[1] || words[0]);
     pos.x = start.x; pos.y = start.y; place();
-    setTimeout(() => say("Hi, I'm Tiko. I walk on words.", 3000), 1600);
+    setTimeout(() => say(Sound.ready() ? "Hi, I'm Harry. I walk on words." : "Hi, I'm Harry. Click anywhere to give me a voice.", 3400), 1600);
     patrol();
 
     words.forEach(w => {
@@ -454,14 +472,14 @@
       tiko.classList.remove('wiggle'); void tiko.offsetWidth; tiko.classList.add('wiggle');
     });
     // click: open the conversation
-    const poke = () => { if (window.TikoChat) window.TikoChat.open(); };
+    const poke = () => { if (window.HarryChat) window.HarryChat.open(); };
     tiko.addEventListener('click', poke);
     tiko.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); poke(); } });
     window.addEventListener('resize', () => { const s = spotFor(words[1]); pos.x = s.x; pos.y = s.y; place(); });
 
-    Tiko.say = say;
-    Tiko.sleep = () => { asleep = true; tiko.classList.add('sleep'); bubble.classList.remove('show'); };
-    Tiko.wake = () => { asleep = false; tiko.classList.remove('sleep'); };
+    Harry.say = say;
+    Harry.sleep = () => { asleep = true; tiko.classList.add('sleep'); bubble.classList.remove('show'); };
+    Harry.wake = () => { asleep = false; tiko.classList.remove('sleep'); };
 
     /* ---------- name morph ---------- */
     const nameEl = $('#name');
@@ -575,7 +593,22 @@
   }
 
   /* ---------- flip cards: tap anywhere ---------- */
+  // on phones the card is as tall as the side that is showing
+  const mqPhone = window.matchMedia('(max-width: 960px)');
+  function sizeCard(card) {
+    const inner = $('.case-inner', card);
+    if (!mqPhone.matches) { inner.style.height = ''; return; }
+    const face = $(card.classList.contains('flipped') ? '.face.back' : '.face.front', card);
+    face.style.minHeight = '0';
+    inner.style.height = face.scrollHeight + 'px';
+    face.style.minHeight = '';
+  }
+  const sizeAll = () => $$('.case').forEach(sizeCard);
+  window.addEventListener('resize', sizeAll);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(sizeAll);
+  sizeAll();
   $$('.case').forEach(card => {
+    new MutationObserver(() => sizeCard(card)).observe(card, { attributes: true, attributeFilter: ['class'] });
     card.addEventListener('click', e => {
       if (e.target.closest('a, .bait, .redact')) return;
       card.classList.toggle('flipped');
@@ -707,7 +740,7 @@
   }
 
   /* ======================================================
-     TIKO DOCK: sticky companion, chat, tour and sleep
+     HARRY DOCK: sticky companion, chat, tour and sleep
      ====================================================== */
   const dock = $('#dock');
   if (dock) {
@@ -718,7 +751,7 @@
     const hero = $('#hero');
     let heroVisible = true, isOpen = false, sleeping = false;
 
-    /* show the pill when hero-Tiko scrolls out of view */
+    /* show the pill when hero-Harry scrolls out of view */
     const updateDock = () => dock.classList.toggle('show', !heroVisible || isOpen);
     if ('IntersectionObserver' in window && hero) {
       new IntersectionObserver(([e]) => { heroVisible = e.isIntersecting; updateDock(); }, { threshold: 0.25 }).observe(hero);
@@ -819,7 +852,7 @@
       cv: ['Hit "Ship the CV" at the bottom of the page and it lands in your downloads. Want me to take you there?', [['Take me there', 'go-cv'], ['How do I reach him?', 'mail']]],
       mail: [`Use the paper-plane form at the bottom, or write to <a href="mailto:${EMAIL}">${EMAIL}</a>. LinkedIn works too.`, [['Take me there', 'go-mail'], ['Get his CV', 'cv']]],
       jobbot: ['job-bot is his side build: it finds jobs, scores the fit, emails two recruiters per job, follows up twice, and stops the moment someone replies. 11% reply rate against about 2% cold.', null],
-      hi: ['Hi! I\'m Tiko. Ask me anything about Hardik.', null],
+      hi: ['Hi! I\'m Harry. Ask me anything about Hardik.', null],
       unknown: ["I only know what's on this page, and that wasn't on it. Try one of these.", null]
     };
     const goto = (sel, then) => {
@@ -873,8 +906,8 @@
       stopTour(true);
       isOpen = true; dock.classList.add('open'); updateDock();
       panel.classList.remove('tour'); panel.setAttribute('aria-hidden', 'false'); pill.setAttribute('aria-expanded', 'true');
-      pTitle.textContent = 'Tiko'; pSub.textContent = 'sticky note · knows only this page';
-      if (!log.children.length) reply("Hi, I'm Tiko. Ask me anything about Hardik, or tap a question below.", defaultChips, 300);
+      pTitle.textContent = 'Harry'; pSub.textContent = 'sticky note · knows only this page';
+      if (!log.children.length) reply("Hi, I'm Harry. Ask me anything about Hardik, or tap a question below.", defaultChips, 300);
       else setChips(defaultChips);
       setTimeout(() => input.focus({ preventScroll: true }), 300);
     }
@@ -885,11 +918,11 @@
     }
     $('#pClose').addEventListener('click', close);
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && isOpen && !WebModal.isOpen()) close(); });
-    window.TikoChat = { open };
+    window.HarryChat = { open };
 
     /* ---------- tour ---------- */
     const stops = [
-      ['#hero', 'Hello', "Hi, I'm Tiko. I live on Hardik's headline and walk on the words. Hover any of them and I'll hop over and explain."],
+      ['#hero', 'Hello', "Hi, I'm Harry. I live on Hardik's headline and walk on the words. Hover any of them and I'll hop over and explain."],
       ['#loop', 'The loop', 'This is how he ships: discover, define, design, build, test, launch, measure. Hover it and it runs. Move away and it waits, like a good sprint.'],
       ['#work', 'Case files', 'Six case files. Tap anywhere on a card to flip it. Every card has the full case on both sides.'],
       ['#c-funnel', 'PrepLadder', 'Start here: two leaks in one funnel. Signups up 18%. The payment numbers are real, but they belong to the company.'],
@@ -947,7 +980,7 @@
       touring = false; setPlaying(false); clearInterval(typeT);
       panel.classList.remove('tour');
       $$('.tour-target').forEach(x => x.classList.remove('tour-target'));
-      pTitle.textContent = 'Tiko'; pSub.textContent = 'sticky note · knows only this page';
+      pTitle.textContent = 'Harry'; pSub.textContent = 'sticky note · knows only this page';
       if (!silent) setChips(defaultChips);
     }
     function endTour() {
@@ -977,14 +1010,14 @@
     const tourBtn = $('#tourBtn');
     if (tourBtn) tourBtn.addEventListener('click', () => startTour(0));
 
-    /* ---------- inactivity: Tiko falls asleep to frogs and crickets ---------- */
+    /* ---------- inactivity: Harry falls asleep to frogs and crickets ---------- */
     const IDLE_MS = 7000;
     let idleT = null;
     function sleep() {
       if (sleeping || touring || WebModal.isOpen() || document.hidden) return;
       sleeping = true;
       dock.classList.add('sleep'); panel.classList.add('sleep');
-      Tiko.sleep();
+      Harry.sleep();
       if (!heroVisible && !isOpen) pillSay('Zzz…', 2000);
       Sound.nightStart();
     }
@@ -992,15 +1025,40 @@
       if (!sleeping) return;
       sleeping = false;
       dock.classList.remove('sleep'); panel.classList.remove('sleep');
-      Tiko.wake(); Sound.nightStop();
+      Harry.wake(); Sound.nightStop();
       const line = pick(wakeLines);
-      if (heroVisible) Tiko.say(line, 3200); else if (!isOpen) pillSay(line, 3600);
+      if (heroVisible) Harry.say(line, 3200); else if (!isOpen) pillSay(line, 3600);
     }
     function activity() { if (sleeping) wake(); clearTimeout(idleT); idleT = setTimeout(sleep, IDLE_MS); }
     ['mousemove', 'pointerdown', 'keydown', 'scroll', 'touchstart', 'wheel'].forEach(ev => window.addEventListener(ev, activity, { passive: true }));
     document.addEventListener('visibilitychange', () => { if (document.hidden) { Sound.nightStop(); } else activity(); });
     document.addEventListener('webmodal', e => { if (e.detail) { if (touring) setPlaying(false); } });
     activity();
+  }
+
+  /* ---------- nav sound button: browsers need one click before any sound ---------- */
+  const soundNav = $('#soundNav');
+  const paintNav = () => {
+    if (!soundNav) return;
+    const on = Sound.isOn();
+    soundNav.classList.toggle('locked', on && !Sound.ready());
+    soundNav.setAttribute('aria-pressed', String(on));
+    soundNav.querySelector('.sn-l').textContent = on ? (Sound.ready() ? 'Sound on' : 'Tap for sound') : 'Sound off';
+    const pb = $('#soundBtn'); if (pb) { pb.setAttribute('aria-pressed', String(on)); pb.title = on ? 'Sound on' : 'Sound off'; }
+  };
+  if (soundNav) {
+    let wasLocked = false;
+    soundNav.addEventListener('pointerdown', () => { wasLocked = !Sound.ready(); });
+    soundNav.addEventListener('keydown', () => { wasLocked = !Sound.ready(); });
+    soundNav.addEventListener('click', () => {
+      const locked = wasLocked || !Sound.ready(); wasLocked = false;
+      if (Sound.isOn() && locked) { Sound.unlock(); setTimeout(() => { Sound.pop(); paintNav(); }, 60); return; }
+      Sound.setOn(!Sound.isOn()); paintNav();
+      if (Sound.isOn()) setTimeout(Sound.pop, 60);
+    });
+    const sb = $('#soundBtn'); if (sb) sb.addEventListener('click', () => setTimeout(paintNav, 0));
+    document.addEventListener('sound-ready', paintNav);
+    paintNav();
   }
 
   /* ======================================================
