@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hardik Jain, Product Manager</title>
+<meta name="description" content="Hardik Jain is a product manager who fixes funnels and ships AI products. Six case files from PrepLadder, University Living and side builds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Bangers&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+
+<header class="topbar" id="top">
+  <div class="wrap">
+    <a class="brand" href="#hero"><span class="dot" aria-hidden="true"></span>Hardik Jain</a>
+    <nav class="nav" aria-label="Main">
+      <a href="#work">Work</a>
+      <a href="#how">How I work</a>
+      <a href="#impact">Impact</a>
+      <a href="#release">CV</a>
+      <button class="chip-btn sound-nav" id="soundNav" aria-pressed="true" title="Turn sound on or off"><span class="sn-dot" aria-hidden="true"></span><span class="sn-l">Tap for sound</span></button>
+      <button class="nav-calm chip-btn" id="calmBtn" aria-pressed="false" title="Turn motion off">Motion on</button>
+      <a class="cta" href="#contact">Say hello</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- =================== HERO =================== -->
+<section class="hero" id="hero">
+  <div class="wrap">
+    <div class="hero-left" id="stage">
+      <div class="ticket mono"><span class="pill">● open</span><b>HJ-001</b> Product Manager · 3 yrs · India</div>
+
+      <h1 class="headline" id="headline">
+        <span class="line"><span class="namebox"><span class="w name" id="name" data-say="That's the boss.|Fancy name, huh?|Hover again. It changes.|Say it thrice. Nothing happens." tabindex="0">Hardik Jain</span><span class="underline" aria-hidden="true"></span><span class="anno case-chip" id="nameChip">PM · funnels + AI · <i>open to roles</i></span></span></span>
+        <span class="line"><span class="w" data-say="Ahoy!|All aboard.|Ships. Never sinks.|Anchors away.">ships</span> <span class="w soft" data-say="Shiny ones.|Fresh out the oven.|Bugs included. Pet ones.|Handle with care.">products</span> <span class="w soft" data-say="Shh. It's shy.|Even 'that' gets a turn.|Quiet word. I like it.|That's that.">that</span></span>
+        <span class="line"><span class="w" data-say="Wiggle wiggle.|I like to move it.|Look, I'm moving too.|Step aside.">move</span> <span class="w soft" data-say="Just 'the'.|Tiny word, big job.|Nice view up here.|Short and sweet.">the</span> <span class="w number" data-say="Ooh, italics.|Yellow suits it.|Fancy.|Don't ask which one.">number.</span><span class="sticky-note" aria-hidden="true">+18% ↑</span></span>
+        <span class="measure" aria-hidden="true"><span>3 lines</span></span>
+      </h1>
+
+      <p class="hero-sub">Funnels, AI assistants and the unglamorous plumbing between them. I start where users quit and stop when the metric moves.</p>
+
+      <div class="hero-cta">
+        <button class="btn btn-primary" id="tourBtn"><span class="play" aria-hidden="true">▶</span>Take the tour<span class="time">1:00</span></button>
+        <a class="link-arrow" href="#work">or go straight to the work <span>→</span></a>
+      </div>
+
+      <div class="tiko" id="tiko" role="button" tabindex="0" aria-label="Harry, the sticky note. Click to ask about Hardik.">
+        <svg viewBox="0 0 11 13" shape-rendering="crispEdges" aria-hidden="true">
+          <g class="body">
+            <rect x="1" y="1" width="9" height="8" fill="#FFD84D"/>
+            <rect x="1" y="8" width="9" height="1" fill="#E9B92B"/>
+            <rect x="8" y="1" width="2" height="2" fill="#F2F3F5"/>
+            <rect x="8" y="1" width="1" height="1" fill="#E9B92B"/>
+            <rect x="8" y="2" width="2" height="1" fill="#E9B92B"/>
+            <rect x="3" y="0" width="4" height="2" fill="#FFFFFF" opacity=".7"/>
+            <rect x="3" y="4" width="1" height="2" fill="#15171B"/>
+            <rect x="6" y="4" width="1" height="2" fill="#15171B"/>
+            <rect class="lid" x="3" y="4" width="1" height="2" fill="#FFD84D"/>
+            <rect class="lid" x="6" y="4" width="1" height="2" fill="#FFD84D"/>
+            <rect x="4" y="7" width="2" height="1" fill="#15171B" opacity=".75"/>
+            <rect x="2" y="6" width="1" height="1" fill="#FF8F6B" opacity=".8"/>
+            <rect x="7" y="6" width="1" height="1" fill="#FF8F6B" opacity=".8"/>
+          </g>
+          <g class="leg-l"><rect x="3" y="9" width="1" height="3" fill="#15171B"/><rect x="2" y="12" width="2" height="1" fill="#15171B"/></g>
+          <g class="leg-r"><rect x="7" y="9" width="1" height="3" fill="#15171B"/><rect x="7" y="12" width="2" height="1" fill="#15171B"/></g>
+        </svg>
+        <span class="zz" aria-hidden="true"><i>z</i><i>z</i><i>Z</i></span>
+      </div>
+      <div class="bubble" id="bubble" aria-live="polite"><span class="who">Harry</span><span id="bubbleText"></span></div>
+    </div>
+
+    <div class="hero-right">
+      <div class="sim loop" id="loop" role="img" aria-label="Animated product lifecycle: discover, define, design, build, test, launch, measure, then loop.">
+        <div class="sim-head">
+          <span class="mono">ship-loop.mov</span>
+          <span class="loop-state mono" id="loopState"><i></i>paused</span>
+        </div>
+        <svg class="loop-svg" viewBox="0 0 356 270" aria-hidden="true">
+          <defs>
+            <pattern id="lpDots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#DADDE3"/></pattern>
+          </defs>
+          <rect x="18" y="16" width="320" height="238" rx="44" fill="url(#lpDots)"/>
+          <path id="loopTrack" class="lp-track" d="M62 16 H294 A44 44 0 0 1 338 60 V210 A44 44 0 0 1 294 254 H62 A44 44 0 0 1 18 210 V60 A44 44 0 0 1 62 16 Z"/>
+          <path id="loopDone" class="lp-done" d="M62 16 H294 A44 44 0 0 1 338 60 V210 A44 44 0 0 1 294 254 H62 A44 44 0 0 1 18 210 V60 A44 44 0 0 1 62 16 Z"/>
+          <g id="loopNodes"></g>
+
+          <!-- scene 0: discover -->
+          <g class="scene s0" data-label="Discover" data-cap="Find the user who left. Then ask why.">
+            <g class="users">
+              <circle cx="120" cy="104" r="9"/><circle cx="150" cy="104" r="9"/><circle cx="180" cy="104" r="9"/><circle cx="210" cy="104" r="9"/><circle cx="240" cy="104" r="9"/>
+              <circle cx="135" cy="134" r="9"/><circle cx="165" cy="134" r="9"/><circle class="quit" cx="195" cy="134" r="9"/><circle cx="225" cy="134" r="9"/>
+            </g>
+            <g class="lens"><circle cx="0" cy="0" r="17" fill="rgba(255,255,255,.5)" stroke="#15171B" stroke-width="3"/><path d="M12 12 L24 24" stroke="#15171B" stroke-width="5" stroke-linecap="round"/></g>
+            <text class="note" x="178" y="178" text-anchor="middle">“why did they leave?”</text>
+          </g>
+          <!-- scene 1: define -->
+          <g class="scene s1" data-label="Define" data-cap="One problem, one metric, written down before anyone builds.">
+            <rect x="128" y="62" width="100" height="128" rx="8" fill="#fff" stroke="#15171B" stroke-width="2"/>
+            <text class="doc-t" x="140" y="82">PRD.md</text>
+            <path class="ln l1" d="M140 98 H214"/><path class="ln l2" d="M140 112 H204"/><path class="ln l3" d="M140 126 H216"/><path class="ln l4" d="M140 140 H190"/>
+            <g class="stamp"><rect x="166" y="152" width="74" height="26" rx="5" fill="none" stroke="#FF5B2E" stroke-width="2.5"/><text x="203" y="170" text-anchor="middle">1 METRIC</text></g>
+          </g>
+          <!-- scene 2: design -->
+          <g class="scene s2" data-label="Design" data-cap="Boxes before pixels. The ugly version gets tested first.">
+            <rect x="140" y="56" width="76" height="140" rx="14" fill="#fff" stroke="#15171B" stroke-width="2.5"/>
+            <rect class="pop p1" x="150" y="70" width="56" height="10" rx="3" fill="#15171B"/>
+            <rect class="pop p2" x="150" y="88" width="56" height="40" rx="6" fill="#FFD84D"/>
+            <rect class="pop p3" x="150" y="136" width="44" height="6" rx="3" fill="#C9CDD5"/>
+            <rect class="pop p4" x="150" y="148" width="32" height="6" rx="3" fill="#C9CDD5"/>
+            <rect class="pop p5" x="150" y="166" width="56" height="18" rx="9" fill="#FF5B2E"/>
+            <path class="cursor" d="M0 0 L0 16 L4 12 L8 20 L11 18 L7 11 L13 11 Z" fill="#15171B" stroke="#fff" stroke-width="1"/>
+          </g>
+          <!-- scene 3: build -->
+          <g class="scene s3" data-label="Build" data-cap="Small slices, shipped behind a flag.">
+            <text class="code" x="112" y="96">{</text><text class="code" x="232" y="96">}</text>
+            <g class="blocks">
+              <rect class="b b1" x="140" y="146" width="24" height="24" rx="4"/><rect class="b b2" x="166" y="146" width="24" height="24" rx="4"/><rect class="b b3" x="192" y="146" width="24" height="24" rx="4"/>
+              <rect class="b b4" x="153" y="120" width="24" height="24" rx="4"/><rect class="b b5" x="179" y="120" width="24" height="24" rx="4"/>
+              <rect class="b b6 hot" x="166" y="94" width="24" height="24" rx="4"/>
+            </g>
+            <rect x="128" y="182" width="100" height="6" rx="3" fill="#E4E6EA"/><rect class="bar-fill" x="128" y="182" width="100" height="6" rx="3" fill="#1E9E57"/>
+          </g>
+          <!-- scene 4: test -->
+          <g class="scene s4" data-label="Test" data-cap="Opinions are cheap. Let 50/50 decide.">
+            <text class="ab-l" x="118" y="100">A</text><rect x="134" y="86" width="104" height="20" rx="5" fill="#EEF0F3"/><rect class="ab-a" x="134" y="86" width="104" height="20" rx="5" fill="#15171B"/>
+            <text class="ab-l" x="118" y="136">B</text><rect x="134" y="122" width="104" height="20" rx="5" fill="#EEF0F3"/><rect class="ab-b" x="134" y="122" width="104" height="20" rx="5" fill="#1E9E57"/>
+            <g class="win"><circle cx="178" cy="172" r="13" fill="#1E9E57"/><path d="M171 172 l5 5 l9 -10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="198" y="177">ship B</text></g>
+          </g>
+          <!-- scene 5: launch -->
+          <g class="scene s5" data-label="Launch" data-cap="Ten percent on Monday. Everyone by Friday, if it holds.">
+            <g class="smoke"><circle cx="170" cy="186" r="8"/><circle cx="186" cy="190" r="10"/><circle cx="160" cy="192" r="6"/><circle cx="198" cy="186" r="6"/></g>
+            <g class="rocket">
+              <path class="flame" d="M172 158 Q178 182 184 158 Z" fill="#FF5B2E"/>
+              <path d="M178 84 C192 98 194 124 190 150 H166 C162 124 164 98 178 84 Z" fill="#fff" stroke="#15171B" stroke-width="2.5"/>
+              <circle cx="178" cy="114" r="6" fill="#FFD84D" stroke="#15171B" stroke-width="2"/>
+              <path d="M166 136 L156 154 H166 Z M190 136 L200 154 H190 Z" fill="#15171B"/>
+            </g>
+            <text class="tagv" x="178" y="214" text-anchor="middle">v1.0 · 10% rollout</text>
+          </g>
+          <!-- scene 6: measure -->
+          <g class="scene s6" data-label="Measure" data-cap="Did the number move? If not, it isn't done. Loop again.">
+            <path d="M118 72 V186 H244" stroke="#15171B" stroke-width="2" fill="none"/>
+            <path class="grid-l" d="M118 150 H244 M118 114 H244" />
+            <path class="spark" d="M124 176 L146 168 L166 172 L186 146 L206 140 L226 108 L240 92"/>
+            <circle class="pulse" cx="240" cy="92" r="6" fill="#1E9E57"/>
+            <text class="up" x="196" y="84">metric ↑</text>
+          </g>
+
+          <!-- the ticket that travels the loop: a tiny Harry -->
+          <g id="loopTicket" class="ticket-t">
+            <rect x="-9" y="-9" width="18" height="18" rx="2" fill="#FFD84D" stroke="#15171B" stroke-width="1.5"/>
+            <rect x="-5" y="-3" width="2.5" height="4" fill="#15171B"/><rect x="2.5" y="-3" width="2.5" height="4" fill="#15171B"/>
+          </g>
+        </svg>
+        <div class="loop-steps mono" id="loopSteps"></div>
+        <div class="sim-out loop-out">
+          <div><div class="mono" style="color:var(--ink-2)" id="loopCap">Find the user who left. Then ask why.</div></div>
+          <div class="delta mono" id="loopCycle">cycle 01</div>
+        </div>
+      </div>
+      <p class="sim-caption"><span class="serif">Discover. Ship. Measure. Repeat.</span><span id="loopHint">The loop every product I ship goes through.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- =================== WORK =================== -->
+<section class="block" id="work">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><div class="eyebrow mono">Selected work</div><h2>Six case <span class="serif">files.</span></h2></div>
+      <p>Each one has a request on top and a real problem underneath. Flip a card for the short version, or open the full case.</p>
+    </div>
+
+    <div class="cases">
+      <!-- 1 -->
+      <article class="case theme-night rv" id="c-sab" tabindex="0" aria-label="Study Abroad Buddy case card. Press Enter to flip.">
+        <div class="case-inner">
+          <div class="face front">
+            <div class="tags"><span class="tag">Generative AI</span><span class="tag">0 → 1</span><span class="tag">Acquired</span></div>
+            <svg class="deco" width="92" height="52" viewBox="0 0 92 52" aria-hidden="true"><rect x="1" y="1" width="62" height="30" rx="15" fill="none" stroke="#FFD84D" stroke-width="1.5"/><circle cx="16" cy="16" r="3" fill="#FFD84D"/><circle cx="28" cy="16" r="3" fill="#FFD84D" opacity=".6"/><circle cx="40" cy="16" r="3" fill="#FFD84D" opacity=".3"/><rect x="40" y="22" width="50" height="28" rx="14" fill="#FFD84D"/><path d="M55 36h20" stroke="#16181D" stroke-width="2"/></svg>
+            <div class="wordmark">Study Abroad Buddy</div>
+            <div class="role-line">University Living · Associate Product Manager<br>GPT-4o · RAG · launched 2024</div>
+            <div class="big-metric">0 → 10K+</div>
+            <p class="metric-cap">students asked it about visas, intakes and money, before a business partner acquired it.</p>
+            <button class="bait" data-case="Study Abroad Buddy" data-owner="University Living" data-metric="lead numbers"><span class="lock" aria-hidden="true"></span>See the real number</button>
+            <div class="case-foot">
+              <p class="one">Students trusted Reddit more than official sites. We made the official answer easy.</p>
+              <div class="case-actions"><a class="btn btn-ghost read-cta" href="cases/study-abroad-buddy.html">Read the case →</a><button class="btn btn-ghost flip-btn" aria-label="Flip the Study Abroad Buddy card">↻ Flip</button></div>
+            </div>
+          </div>
+          <div class="face back">
+            <h4>What was asked</h4><p class="asked">“Can we put ChatGPT on the website?”</p>
+            <h4>What was underneath</h4><p class="under">Students weren't short of answers. They were short of answers they could trust.</p>
+            <h4>What I did</h4>
+            <ul>
+              <li>Scoped it to 3 countries and 4 intents instead of “everything”.</li>
+              <li>Grounded it on official URLs and PDFs (RAG), with sources on every answer.</li>
+              <li>Built a <span class="n">300</span>-question eval set; hallucinations fell from <span class="n">14%</span> to <span class="n">3%</span>.</li>
+              <li>Added PII guardrails and a counsellor handoff, which produced <button class="redact" data-case="Study Abroad Buddy" data-owner="University Living" data-metric="lead count" aria-label="Hidden number, click to see why"><span>█,███</span></button> leads.</li>
+            </ul>
+            <p class="myrole">My role: use case, PRD, prompts, evals, guardrails and user testing, with design, engineering, QA and ops.</p>
+            <div class="case-actions"><a class="btn btn-ghost" href="cases/study-abroad-buddy.html">Read the case →</a><button class="bait bait-sm" data-case="Study Abroad Buddy" data-owner="University Living" data-metric="lead numbers"><span class="lock" aria-hidden="true"></span>See the real number</button><button class="btn btn-ghost flip-btn">↺ Flip back</button></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="case rv" id="c-funnel" tabindex="0" aria-label="PrepLadder case card. Press Enter to flip.">
+        <div class="case-inner">
+          <div class="face front">
+            <div class="tags"><span class="tag">Growth</span><span class="tag">Monetisation</span><span class="tag">A/B tested</span></div>
+            <svg class="deco" width="96" height="60" viewBox="0 0 96 60" aria-hidden="true"><rect x="0" y="2" width="96" height="10" rx="3" fill="#15171B"/><rect x="0" y="18" width="70" height="10" rx="3" fill="#15171B"/><rect x="0" y="34" width="40" height="10" rx="3" fill="#FF5B2E"/><rect x="0" y="50" width="22" height="10" rx="3" fill="#15171B"/></svg>
+            <div class="wordmark">PrepLadder <small>by Unacademy</small></div>
+            <div class="role-line">Sole PM · 200K+ active learners · <button class="redact" data-case="PrepLadder" data-owner="PrepLadder (Unacademy)" data-metric="paying learners" aria-label="Hidden number, click to see why"><span>██K</span></button> paying<br>NEET PG / FMGE · 2025–26</div>
+            <div class="big-metric">+18%</div>
+            <p class="metric-cap">new-user signups from one audit of one funnel. Payment success went up too, by a number that's under NDA.</p>
+            <button class="bait" data-case="PrepLadder" data-owner="PrepLadder (Unacademy)" data-metric="payment and revenue numbers"><span class="lock" aria-hidden="true"></span>See the real number</button>
+            <div class="case-foot">
+              <p class="one">Two leaks in one funnel. The second one was costing more.</p>
+              <div class="case-actions"><a class="btn btn-ghost read-cta" href="cases/prepladder-funnel.html">Read the case →</a><button class="btn btn-ghost flip-btn" aria-label="Flip the PrepLadder card">↻ Flip</button></div>
+            </div>
+          </div>
+          <div class="face back">
+            <h4>What was asked</h4><p class="asked">“Sales are flat. Run another discount.”</p>
+            <h4>What was underneath</h4><p class="under">Demand was fine. <span class="n">34%</span> of new users quit at the OTP screen, and <button class="redact" data-case="PrepLadder" data-owner="PrepLadder (Unacademy)" data-metric="failed payment rate" aria-label="Hidden number, click to see why"><span>██%</span></button> of people who tried to pay never got through.</p>
+            <h4>What I did</h4>
+            <ul>
+              <li>Mapped install → signup → trial → paid with event data and <span class="n">40</span> session replays.</li>
+              <li>One-tap login, deferred profiling, exam-first Home. A/B tested: signups +18%.</li>
+              <li>UPI auto-retry, saved methods, EMI shown upfront, WhatsApp OTP fallback.</li>
+              <li>Subscription revenue up <button class="redact" data-case="PrepLadder" data-owner="PrepLadder (Unacademy)" data-metric="revenue lift" aria-label="Hidden number, click to see why"><span>█%</span></button>, about <button class="redact" data-case="PrepLadder" data-owner="PrepLadder (Unacademy)" data-metric="monthly revenue impact" aria-label="Hidden number, click to see why"><span>₹██L</span></button> a month.</li>
+            </ul>
+            <p class="myrole">My role: sole PM. Discovery, PRDs, experiment design and rollout with engineering, design, QA, growth and finance.</p>
+            <div class="case-actions"><a class="btn btn-ghost" href="cases/prepladder-funnel.html">Read the case →</a><button class="bait bait-sm" data-case="PrepLadder" data-owner="PrepLadder (Unacademy)" data-metric="payment and revenue numbers"><span class="lock" aria-hidden="true"></span>See the real number</button><button class="btn btn-ghost flip-btn">↺ Flip back</button></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="case theme-sticky rv" id="c-data" tabindex="0" aria-label="Ask Data case card. Press Enter to flip.">
+        <div class="case-inner">
+          <div class="face front">
+            <div class="tags"><span class="tag">Internal AI</span><span class="tag">Text-to-SQL</span><span class="tag">PII safe</span></div>
+            <svg class="deco" width="110" height="56" viewBox="0 0 110 56" aria-hidden="true"><rect x="1" y="1" width="108" height="24" rx="12" fill="#fff" stroke="#15171B" stroke-width="1.2"/><text x="12" y="17" font-family="IBM Plex Mono, monospace" font-size="10" fill="#15171B">signups by city?</text><rect x="30" y="31" width="79" height="24" rx="12" fill="#15171B"/><text x="40" y="47" font-family="IBM Plex Mono, monospace" font-size="10" fill="#FFD84D">SELECT city…</text></svg>
+            <div class="wordmark">Ask Data <small>PrepLadder</small></div>
+            <div class="role-line">Sole PM · internal LLM tool<br>Used by the CBO, CMO, CTO and their teams</div>
+            <div class="big-metric">80–90%</div>
+            <p class="metric-cap">of recurring data questions answered in under <span class="n">2</span> minutes, with no analyst in the loop.</p>
+            <button class="bait" data-case="Ask Data" data-owner="PrepLadder (Unacademy)" data-metric="usage numbers"><span class="lock" aria-hidden="true"></span>See the real number</button>
+            <div class="case-foot">
+              <p class="one">Leaders waited two days for numbers they needed in two minutes.</p>
+              <div class="case-actions"><a class="btn btn-ghost read-cta" href="cases/ask-data.html">Read the case →</a><button class="btn btn-ghost flip-btn" aria-label="Flip the Ask Data card">↻ Flip</button></div>
+            </div>
+          </div>
+          <div class="face back">
+            <h4>What was asked</h4><p class="asked">“We need another analyst.”</p>
+            <h4>What was underneath</h4><p class="under">Most requests were the same <span class="n">40</span> questions. The analyst team had become a human cache.</p>
+            <h4>What I did</h4>
+            <ul>
+              <li>Logged 3 weeks of data requests and clustered them into templates.</li>
+              <li>Text-to-SQL over a curated metric layer, never raw tables.</li>
+              <li>Golden-answer accuracy checks, PII masking and role-based access.</li>
+              <li>15–20 queries per user a day; about <span class="n">70</span> analyst hours saved each week.</li>
+            </ul>
+            <p class="myrole">My role: problem framing, PRD, prompt iteration, accuracy checks and PII rules, with data and engineering.</p>
+            <div class="case-actions"><a class="btn btn-ghost" href="cases/ask-data.html">Read the case →</a><button class="bait bait-sm" data-case="Ask Data" data-owner="PrepLadder (Unacademy)" data-metric="usage numbers"><span class="lock" aria-hidden="true"></span>See the real number</button><button class="btn btn-ghost flip-btn">↺ Flip back</button></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="case theme-orange rv" id="c-lead" tabindex="0" aria-label="Lead scoring case card. Press Enter to flip.">
+        <div class="case-inner">
+          <div class="face front">
+            <div class="tags"><span class="tag">Sales ops</span><span class="tag">Scoring model</span><span class="tag">Revenue</span></div>
+            <svg class="deco" width="80" height="60" viewBox="0 0 80 60" aria-hidden="true"><circle cx="30" cy="30" r="26" fill="none" stroke="#fff" stroke-width="1.5" opacity=".6"/><path d="M30 30 L30 8" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><path d="M30 30 L46 38" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><circle cx="30" cy="30" r="3" fill="#fff"/><text x="60" y="14" font-family="IBM Plex Mono, monospace" font-size="10" fill="#fff">10m</text></svg>
+            <div class="wordmark">University Living</div>
+            <div class="role-line">Associate Product Manager · lead scoring<br>Student housing marketplace · 2024</div>
+            <div class="big-metric">3d → 10m</div>
+            <p class="metric-cap">speed-to-lead, from 2–3 days to 10 minutes, and lead-to-booking conversion up 44%. The base rate stays with the company.</p>
+            <button class="bait" data-case="Lead scoring" data-owner="University Living" data-metric="conversion numbers"><span class="lock" aria-hidden="true"></span>See the real number</button>
+            <div class="case-foot">
+              <p class="one">Counsellors called in the order leads arrived. Students booked in the order they were called.</p>
+              <div class="case-actions"><a class="btn btn-ghost read-cta" href="cases/lead-scoring.html">Read the case →</a><button class="btn btn-ghost flip-btn" aria-label="Flip the lead scoring card">↻ Flip</button></div>
+            </div>
+          </div>
+          <div class="face back">
+            <h4>What was asked</h4><p class="asked">“Make the counsellors call faster.”</p>
+            <h4>What was underneath</h4><p class="under">Order, not speed. <button class="redact" data-case="Lead scoring" data-owner="University Living" data-metric="monthly lead volume" aria-label="Hidden number, click to see why"><span>██K</span></button> leads a month were worked first-in, first-out, so ready-to-book students went cold in the queue.</p>
+            <h4>What I did</h4>
+            <ul>
+              <li>Compared <span class="n">6</span> months of won and lost leads to find intent signals.</li>
+              <li>Rule-based score first, logistic regression second.</li>
+              <li>Hot leads auto-routed to a counsellor, with a WhatsApp first touch.</li>
+              <li>Speed-to-lead: 10 minutes. Booking conversion +<span class="n">44%</span>.</li>
+            </ul>
+            <p class="myrole">My role: discovery with the sales floor, scoring logic, routing rules and rollout with engineering and sales ops.</p>
+            <div class="case-actions"><a class="btn btn-ghost" href="cases/lead-scoring.html">Read the case →</a><button class="bait bait-sm" data-case="Lead scoring" data-owner="University Living" data-metric="conversion numbers"><span class="lock" aria-hidden="true"></span>See the real number</button><button class="btn btn-ghost flip-btn">↺ Flip back</button></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="case theme-paper rv" id="c-bot" tabindex="0" aria-label="job-bot case card. Press Enter to flip.">
+        <div class="case-inner">
+          <div class="face front">
+            <div class="tags"><span class="tag">Automation</span><span class="tag">Python</span><span class="tag">Side build</span></div>
+            <svg class="deco" width="104" height="60" viewBox="0 0 104 60" aria-hidden="true"><g font-family="IBM Plex Mono, monospace" font-size="9" fill="#555B66"><text x="0" y="10">scrape</text><text x="0" y="26">match</text><text x="0" y="42">reach</text><text x="0" y="58">follow</text></g><g fill="#15171B"><rect x="44" y="3" width="60" height="8" rx="2"/><rect x="44" y="19" width="40" height="8" rx="2"/><rect x="44" y="35" width="22" height="8" rx="2"/></g><rect x="44" y="51" width="12" height="8" rx="2" fill="#1E9E57"/></svg>
+            <div class="wordmark">job-bot</div>
+            <div class="role-line">Builder and PM · Python, Selenium, scikit-learn<br>Runs daily · 2026</div>
+            <div class="big-metric"><span class="n">11%</span></div>
+            <p class="metric-cap">reply rate on outreach, against about <span class="n">2%</span> for cold applications, with nothing sent by hand.</p>
+            <button class="bait" data-case="job-bot" data-owner="me" data-metric="reply rate" data-own="1"><span class="lock" aria-hidden="true"></span>See the real number</button>
+            <div class="case-foot">
+              <p class="one">A job search is a funnel too. So I built one.</p>
+              <div class="case-actions"><a class="btn btn-ghost read-cta" href="cases/job-bot.html">Read the case →</a><button class="btn btn-ghost flip-btn" aria-label="Flip the job-bot card">↻ Flip</button></div>
+            </div>
+          </div>
+          <div class="face back">
+            <h4>What was asked</h4><p class="asked">“Just apply to more jobs.”</p>
+            <h4>What was underneath</h4><p class="under">Volume wasn't the bottleneck. Getting a human to read the application was.</p>
+            <h4>What I did</h4>
+            <ul>
+              <li>Pulls jobs daily from LinkedIn, Wellfound and job-alert emails, then removes duplicates.</li>
+              <li>Scores fit: title 30%, skills 40%, experience 15%, text similarity 15%.</li>
+              <li>Finds 2 recruiters per job and referral contacts, on a fixed credit budget.</li>
+              <li>Sends tailored emails and two follow-ups, and stops the moment someone replies.</li>
+            </ul>
+            <p class="myrole">My role: everything. Problem, scoring design, build, and a local dashboard to watch the funnel.</p>
+            <div class="case-actions"><a class="btn btn-ghost" href="cases/job-bot.html">Read the case →</a><button class="bait bait-sm" data-case="job-bot" data-owner="me" data-metric="reply rate" data-own="1"><span class="lock" aria-hidden="true"></span>See the real number</button><button class="btn btn-ghost flip-btn">↺ Flip back</button></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6 -->
+      <article class="case theme-night rv" id="c-champ" tabindex="0" aria-label="Champ 4 case card. Press Enter to flip.">
+        <div class="case-inner">
+          <div class="face front">
+            <div class="tags"><span class="tag">Concept</span><span class="tag">Hardware + app</span><span class="tag">Two-sided</span></div>
+            <svg class="deco" width="70" height="80" viewBox="0 0 70 80" aria-hidden="true"><rect x="22" y="0" width="26" height="16" rx="5" fill="#2D6E99"/><rect x="22" y="64" width="26" height="16" rx="5" fill="#2D6E99"/><rect x="8" y="12" width="54" height="56" rx="16" fill="#0B0B10" stroke="#5BC8F5" stroke-width="3"/><circle cx="35" cy="40" r="10" fill="#4ADE80"/><circle cx="31" cy="38" r="2" fill="#0B0B10"/><circle cx="39" cy="38" r="2" fill="#0B0B10"/></svg>
+            <div class="wordmark">Champ 4 <small>kids' watch concept</small></div>
+            <div class="role-line">Product concept + interactive prototype<br>Not affiliated with Noise · 2026</div>
+            <div class="big-metric">2 users</div>
+            <p class="metric-cap">a 9-year-old and a parent. Both have to say yes, or the watch ends up in a drawer by week three.</p>
+            <button class="bait" data-case="Champ 4" data-owner="me" data-metric="numbers" data-own="1"><span class="lock" aria-hidden="true"></span>See the real number</button>
+            <div class="case-foot">
+              <p class="one">Make the fun run on the behaviour parents want.</p>
+              <div class="case-actions"><a class="btn btn-ghost read-cta" href="cases/champ-4.html">Read the case →</a><button class="btn btn-ghost flip-btn" aria-label="Flip the Champ 4 card">↻ Flip</button></div>
+            </div>
+          </div>
+          <div class="face back">
+            <h4>What was asked</h4><p class="asked">“Add more safety features.”</p>
+            <h4>What was underneath</h4><p class="under">Kids drop watches that feel like trackers. Parents ignore watches that false-alarm. More features make both worse.</p>
+            <h4>What I did</h4>
+            <ul>
+              <li>Fun that only works with a friend: Secret Handshake, Sparks, Glow Tag.</li>
+              <li>Sure Location: two fixes before an alert, and the watch says how sure it is.</li>
+              <li>A loop: check in, wear it, charge it, and your Spark grows.</li>
+              <li>A clickable prototype and the five metrics I'd run it on.</li>
+            </ul>
+            <p class="myrole">My role: research, concept, product spec, interaction design and a working web prototype.</p>
+            <div class="case-actions"><a class="btn btn-ghost" href="cases/champ-4.html">Read the case →</a><button class="bait bait-sm" data-case="Champ 4" data-owner="me" data-metric="numbers" data-own="1"><span class="lock" aria-hidden="true"></span>See the real number</button><button class="btn btn-ghost flip-btn">↺ Flip back</button></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =================== ARCHIVE =================== -->
+<section class="block" id="archive" style="padding-top:0">
+  <div class="wrap">
+    <div class="archive rv">
+      <div>
+        <div class="eyebrow mono">The archive</div>
+        <div class="count">+9</div>
+        <h3>Smaller bets, still shipped.</h3>
+        <p>Features and launches that didn't get a full case file. Each one had an owner, a metric and a release date.</p>
+      </div>
+      <ul class="arch-list">
+        <li><div class="row"><span class="t">Refer &amp; Earn relaunch<span class="d">Two-sided rewards and WhatsApp sharing · PrepLadder</span></span><span class="m">referral share <button class="redact" data-case="PrepLadder" data-owner="PrepLadder (Unacademy)" data-metric="referral share" aria-label="Hidden number, click to see why"><span>██ → ██</span></button></span></div></li>
+        <li><div class="row"><span class="t">PrepAI voice doubts<span class="d">Ask a doubt out loud, get an answer in seconds · PrepLadder</span></span><span class="m"><b><span class="n">6K</span></b> doubts / day</span></div></li>
+        <li><div class="row"><span class="t">Engagement suite<span class="d">Progress tracker, leaderboard, Daily Scholarship Tests · PrepLadder</span></span><span class="m">40% adoption</span></div></li>
+        <li><a href="https://www.prepladder.com/courses/medical-pg/resolve-live-classes" target="_blank" rel="noopener"><span class="t">Resolve live classes ↗<span class="d">19-subject live track with tests and discussions · PrepLadder</span></span><span class="m">live product</span></a></li>
+        <li><div class="row"><span class="t">NEET PG pattern response<span class="d">Section-wise timers and test reset after the exam changed · PrepLadder</span></span><span class="m">shipped in <b><span class="n">3 weeks</span></b></span></div></li>
+        <li><div class="row"><span class="t">WhatsApp booking bot<span class="d">Property search and follow-ups from 100+ interviews · University Living</span></span><span class="m"><b><span class="n">48%</span></b> reply rate</span></div></li>
+        <li><div class="row"><span class="t">CleverTap reactivation<span class="d">Exit-intent and RFM journeys · University Living</span></span><span class="m">enquiries <b>+4%</b></span></div></li>
+        <li><a href="#supabase-link"><span class="t">Supabase project ↗<span class="d">Full-stack side build · live link coming soon</span></span><span class="m">side build</span></a></li>
+        <li><a href="https://desportivos.lnmiit.ac.in/index.html" target="_blank" rel="noopener"><span class="t">Desportivos ↗<span class="d">Head of the organising committee, LNMIIT's sports fest</span></span><span class="m"><b>₹25L+</b> raised · 10K+ athletes</span></a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- =================== PATH =================== -->
+<section class="block" id="path" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><div class="eyebrow mono">Three years</div><h2>The <span class="serif">path.</span></h2></div>
+      <p>An edtech marketplace, an exam-prep app, a risk-data company. Different users, the same question: where do they quit, and why?</p>
+    </div>
+    <div class="path rv">
+      <div class="path-row"><span class="co">ZIGRAM</span><span class="ro">Products Associate</span><span class="de">Enterprise risk-data workflows for a global KYC client.</span><span class="yr now">2026 · now</span></div>
+      <div class="path-row"><span class="co">PrepLadder <span style="font-weight:500;font-size:15px;color:var(--ink-2)">by Unacademy</span></span><span class="ro">Associate Product Manager</span><span class="de">Sole PM for the whole app: 200K+ active learners, a paying base I can't print here. Funnel, payments, growth loops and two AI products.</span><span class="yr">2025 – 26</span></div>
+      <div class="path-row"><span class="co">University Living</span><span class="ro">Associate Product Manager</span><span class="de">Study Abroad Buddy from 0 to 10K+, lead scoring, the WhatsApp bot and lifecycle journeys.</span><span class="yr">2023 – 25</span></div>
+      <div class="path-row"><span class="co">LNMIIT, Jaipur</span><span class="ro">B.Tech, ECE</span><span class="de">Led a 35-person team to run Desportivos: ₹25L+ in sponsorship, 10K+ athletes.</span><span class="yr">2020 – 24</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== HOW I WORK =================== -->
+<section class="block" id="how">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><div class="eyebrow mono">How I work</div><h2>Four <span class="serif">rules.</span></h2></div>
+      <p>Each one came from a mistake I made once. Each card below is interactive.</p>
+    </div>
+
+    <div class="belief rv">
+      <div class="b-copy"><div class="b-num">01</div><h3>Fix the drop-off, not the feature request.</h3><p>Every request arrives as a solution. Before writing a PRD, I find the step where people leave and ask what they were trying to do when they left.</p></div>
+      <div class="b-vis">
+        <div class="req" id="req" tabindex="0" role="button" aria-label="Flip to see the real problem">
+          <div class="side s1"><span class="k">What was asked</span><span class="q">“Add a referral banner on Home.”</span></div>
+          <div class="side s2"><span class="k">What was meant</span><span class="q">New users don't trust an app they found five minutes ago.</span></div>
+        </div>
+        <span class="hint mono">hover or tap the card</span>
+      </div>
+    </div>
+
+    <div class="belief rv">
+      <div class="b-copy"><div class="b-num">02</div><h3>No AI answer ships without an eval.</h3><p>A demo proves an AI can be right. An eval set proves how often it's wrong. I write the test questions before the prompt, and the guardrails before the launch.</p></div>
+      <div class="b-vis">
+        <div class="eval-grid" id="evalGrid" aria-hidden="true"></div>
+        <div class="eval-stat"><div><b id="evalPct">14%</b> <span class="mono">wrong answers</span></div></div>
+        <button class="switch" id="evalSwitch" role="switch" aria-checked="false"><span class="tr"></span>Guardrails and grounding</button>
+      </div>
+    </div>
+
+    <div class="belief rv">
+      <div class="b-copy"><div class="b-num">03</div><h3>One metric per bet.</h3><p>Ten metrics on a dashboard means nobody owns any of them. Each bet gets one number we agree on before building, and a date we check it.</p></div>
+      <div class="b-vis">
+        <div class="metric-cloud" id="cloud">
+          <span>page views</span><span>app opens</span><span>time on screen</span><span>notifications sent</span><span>downloads</span><span>payment success</span><span>MAU</span><span>clicks</span><span>sessions</span>
+        </div>
+        <button class="chip-btn" id="cloudBtn">Pick the one that matters</button>
+      </div>
+    </div>
+
+    <div class="belief rv">
+      <div class="b-copy"><div class="b-num">04</div><h3>Ship small. Let the test decide.</h3><p>Opinions are cheap and launches are expensive. I'd rather ship half a feature to 10% of users on Monday than the whole thing to everyone next month.</p></div>
+      <div class="b-vis">
+        <div class="ab">
+          <div class="ab-row"><span>A</span><div class="bar"><i id="abA"></i></div><span id="abAv">0%</span></div>
+          <div class="ab-row b"><span>B</span><div class="bar"><i id="abB"></i></div><span id="abBv">0%</span></div>
+          <div class="conf" id="abConf">signup rate · not run yet</div>
+        </div>
+        <button class="chip-btn" id="abBtn">▶ Run the test</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== IMPACT =================== -->
+<section class="block" id="impact">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><div class="eyebrow mono">Impact</div><h2>At <span class="serif">scale.</span></h2></div>
+      <p>The size of the products I owned, and what moved while I owned them.</p>
+    </div>
+    <div class="impact rv">
+      <div class="tile dark"><span class="src">PrepLadder · while I was PM</span><span class="v">200K+</span><p>active learners on the app I ran as the sole PM. How many pay is <button class="redact" data-case="PrepLadder" data-owner="PrepLadder (Unacademy)" data-metric="paying learners" aria-label="Hidden number, click to see why"><span>██K</span></button>.</p></div>
+      <div class="tile"><span class="src">PrepLadder · payments</span><span class="v"><button class="redact" data-case="PrepLadder" data-owner="PrepLadder (Unacademy)" data-metric="monthly revenue impact" aria-label="Hidden number, click to see why"><span>₹██L</span></button></span><p>added to monthly subscription revenue by fixing checkout, not by discounting. Yes, the black bar is clickable.</p></div>
+      <div class="tile"><span class="src">University Living · <a href="https://education21.in/universityliving-com-launches-ai-powered-assistant-study-abroad-buddy/" target="_blank" rel="noopener">launch press ↗</a></span><span class="v">10K+</span><p>students used Study Abroad Buddy, the GPT-4o assistant I took from PRD to launch.</p></div>
+      <div class="tile"><span class="src">Across roles</span><span class="v">3</span><p>LLM products shipped to real users: Study Abroad Buddy, Ask Data and PrepAI voice.</p></div>
+      <div class="tile"><span class="src">Discovery</span><span class="v">100+</span><p>user interviews, turned into PRDs, prototypes and a roadmap.</p></div>
+      <div class="tile dark"><span class="src">PrepLadder · onboarding</span><span class="v">+18%</span><p>new-user signups after rebuilding the first two minutes of the app.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== CONTACT =================== -->
+<section class="block" id="contact" style="padding-bottom:30px">
+  <div class="wrap">
+    <div class="contact rv">
+      <div>
+        <div class="eyebrow mono" style="color:#B4B8C1">Contact</div>
+        <h2>Say <span class="serif">hello.</span></h2>
+        <p>I'm looking for product roles in AI, growth or B2B SaaS. Some company numbers are easier to walk through on a call than on a page, so ask for a walkthrough.</p>
+      </div>
+      <div class="links">
+        <button id="copyEmail" data-email="hardik201729@gmail.com"><span>hardik201729@gmail.com</span><span class="mono">Copy</span></button>
+        <a href="https://www.linkedin.com/in/hardik-jain-8b0887189/" target="_blank" rel="noopener"><span>LinkedIn</span><span class="mono">↗</span></a>
+        <a href="https://medium.com/@jain201729" target="_blank" rel="noopener"><span>Medium</span><span class="mono">↗</span></a>
+      </div>
+
+      <div class="contact-tools">
+        <!-- CV as a release -->
+        <div class="release" id="release">
+          <div class="rel-head mono"><span><b>hardik</b>@v3.0</span><span class="rel-latest">latest stable</span></div>
+          <ul class="rel-notes mono">
+            <li><i class="add">+</i>3 years of product, 2 products taken from 0 to 1</li>
+            <li><i class="add">+</i>3 LLM products shipped to real users</li>
+            <li><i class="fix">~</i>fixed: “can we just add a banner?”</li>
+            <li><i class="rm">−</i>known issue: says “quick question” before long ones</li>
+          </ul>
+          <div class="pipe mono" id="pipe" aria-hidden="true"><span>lint</span><span>test</span><span>build</span><span>ship</span></div>
+          <button class="rel-btn" id="shipCv" data-href="assets/Hardik-Jain-CV.pdf"><span class="rel-label">Ship the CV to my downloads</span><span class="rel-arr" aria-hidden="true">↓</span></button>
+          <div class="rel-foot mono" id="relFoot">PDF · 1 page · no login, no tracking pixel</div>
+        </div>
+
+        <!-- mail as a paper plane -->
+        <form class="mailer" id="mailer" data-email="hardik201729@gmail.com">
+          <div class="mailer-head mono"><span>new_message.eml</span><span>to: hardik</span></div>
+          <div class="mono mailer-k">what's this about?</div>
+          <div class="mailer-chips" role="radiogroup" aria-label="Subject">
+            <button type="button" role="radio" aria-checked="true" data-sub="A PM role I think you'd fit">A PM role</button>
+            <button type="button" role="radio" aria-checked="false" data-sub="Can we get on a quick call?">A quick call</button>
+            <button type="button" role="radio" aria-checked="false" data-sub="Question about your job-bot">Your job-bot</button>
+            <button type="button" role="radio" aria-checked="false" data-sub="Just saying hi">Just saying hi</button>
+          </div>
+          <label class="mono mailer-k" for="mailNote">one line about you <span style="opacity:.6">(optional)</span></label>
+          <input id="mailNote" class="mailer-in" maxlength="140" placeholder="e.g. Hiring a growth PM at a fintech">
+          <button class="mailer-send" type="submit"><span>Fold it and send</span>
+            <svg class="plane" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 11 L22 3 L15 21 L11 13 Z" fill="#FFD84D" stroke="#15171B" stroke-width="1.5" stroke-linejoin="round"/><path d="M11 13 L22 3" stroke="#15171B" stroke-width="1.5"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="colophon">
+      <div><h5>Now</h5>Products Associate at ZIGRAM. Open to PM roles.</div>
+      <div><h5>Type</h5>Bricolage Grotesque for headings, Geist for reading, Plex Mono for the notes, Instrument Serif for the one word that matters.</div>
+      <div><h5>Colour</h5>Orange for action. Sticky-note yellow for emphasis. Green for a metric that moved.</div>
+      <div><h5>Made with</h5>Written and directed by me, built with Claude. Harry knows only what's on this page.</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- Harry dock: sticky companion, chat and tour -->
+<div class="dock" id="dock">
+  <div class="panel" id="panel" role="dialog" aria-label="Harry" aria-hidden="true">
+    <div class="p-head">
+      <span class="tface" aria-hidden="true"><i class="eye"><b></b></i><i class="eye"><b></b></i></span>
+      <div class="p-title"><b id="pTitle">Harry</b><span id="pSub">sticky note · knows only this page</span></div>
+      <button class="p-icon" id="soundBtn" aria-pressed="true" title="Sound on" aria-label="Toggle sound">♪</button>
+      <button class="p-icon" id="pClose" aria-label="Close Harry">✕</button>
+    </div>
+    <div class="p-segs" id="pSegs" aria-hidden="true"></div>
+    <div class="p-log" id="pLog" aria-live="polite"></div>
+    <div class="p-tour" id="pTour">
+      <div class="p-tour-txt" id="pTourTxt"></div>
+      <div class="p-ctrl">
+        <button class="c-btn" id="tPrev" aria-label="Previous stop">‹</button>
+        <button class="c-btn c-main" id="tPlay" aria-label="Pause tour">❚❚</button>
+        <button class="c-btn" id="tNext" aria-label="Next stop">›</button>
+        <button class="c-ask" id="tAsk">Ask about this</button>
+      </div>
+    </div>
+    <div class="p-chips" id="pChips"></div>
+    <form class="p-form" id="pForm" autocomplete="off">
+      <input id="pInput" placeholder="Ask Harry something…" aria-label="Ask Harry">
+      <button aria-label="Send">↑</button>
+    </form>
+  </div>
+  <button class="dock-pill" id="dockPill" aria-label="Open Harry" aria-expanded="false">
+    <span class="tface" aria-hidden="true"><i class="eye"><b></b></i><i class="eye"><b></b></i><span class="dz">z</span></span>
+    <span class="dock-say" id="dockSay"></span>
+    <svg class="ring" viewBox="0 0 36 36" aria-hidden="true"><circle class="trk" cx="18" cy="18" r="14"/><circle class="val" id="ringVal" cx="18" cy="18" r="14"/></svg>
+  </button>
+</div>
+<div class="plane-fly" id="planeFly" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 11 L22 3 L15 21 L11 13 Z" fill="#FFD84D" stroke="#15171B" stroke-width="1.5" stroke-linejoin="round"/><path d="M11 13 L22 3" stroke="#15171B" stroke-width="1.5"/></svg></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

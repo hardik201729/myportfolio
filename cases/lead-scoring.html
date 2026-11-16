@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lead scoring case study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Bangers&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html"><span class="dot" aria-hidden="true"></span>Hardik Jain</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../index.html#work">All work</a>
+      <a class="cta" href="../index.html#contact">Say hello</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="wrap">
+  <div class="c-hero">
+    <a class="back-link" href="../index.html#work">← All case files</a>
+    <div class="eyebrow mono">University Living · Associate Product Manager · 2024</div>
+    <h1>Counsellors called in the order leads arrived. Students booked in the order they were called.</h1>
+    <p class="deck">Thousands of student leads a month were worked first-in, first-out, so students ready to book went cold in the queue. A lead scoring and routing system cut speed-to-lead from 2–3 days to 10 minutes and lifted lead-to-booking conversion from 8% to 11.5%.</p>
+    <div class="c-metrics"><div class="c-metric hl"><div class="v">2–3 days → 10 min</div><div class="l">speed-to-lead for high-intent students</div></div><div class="c-metric"><div class="v"><button class="redact" data-case="Lead scoring" data-owner="University Living" data-metric="conversion rate" aria-label="Hidden number, click to see why"><span>█% → ██%</span></button></div><div class="l">lead-to-booking conversion</div></div><div class="c-metric"><div class="v"><button class="redact" data-case="Lead scoring" data-owner="University Living" data-metric="monthly lead volume" aria-label="Hidden number, click to see why"><span>██K</span></button></div><div class="l">leads a month scored automatically</div></div><div class="c-metric"><div class="v"><span class="n">+44%</span></div><div class="l">bookings from the same lead volume</div></div></div>
+    <div class="c-meta"><div><h5>Role</h5><p>Discovery with sales, scoring logic, routing rules, rollout</p></div><div><h5>Team</h5><span class="n">2</span> engineers, sales ops, <span class="n">30</span>+ counsellors</div><div><h5>Timeline</h5><span class="n">6</span> weeks for v1, <span class="n">4</span> more for v2</div><div><h5>Links</h5><p>Internal system, walkthrough on request</p></div></div>
+  </div>
+  <div class="c-body">
+    <nav class="toc" aria-label="On this page"><h5>On this page</h5><a href="#context">Context</a><a href="#problem">The problem behind the problem</a><a href="#model">The scoring model</a><a href="#routing">Routing, not just scoring</a><a href="#impact">Impact</a><a href="#next">What I learned</a></nav>
+    <article class="article">
+      <div class="tldr"><h4>The short version</h4><p>Speed wasn't the real problem; order was. I scored every lead on intent signals, routed the hottest to a counsellor within minutes and started a WhatsApp first touch. Same team, same leads, <span class="n">44%</span> more bookings.</p></div>
+      <section id="context"><span class="k">01</span><h2>Context</h2>
+<p>University Living sells student accommodation abroad. Leads come from the website, partners and campaigns, about <button class="redact" data-case="Lead scoring" data-owner="University Living" data-metric="monthly lead volume" aria-label="Hidden number, click to see why"><span>██K</span></button> a month. A team of counsellors calls each one, answers questions and helps them book.</p>
+<p>Leadership saw slow follow-up and asked for the obvious fix: make counsellors call faster.</p></section><section id="problem"><span class="k">02</span><h2>The problem behind the problem</h2>
+<p>I sat with the sales floor for <span class="n">a week</span> and pulled <span class="n">6</span> months of won and lost leads. Counsellors were working hard. They were just working the queue top to bottom, so a student flying out in two weeks waited behind someone browsing for next year.</p>
+<figure><svg class="dg" viewBox="0 0 720 260" role="img" aria-label="Booking rate by time to first call"><line class="grid" x1="40" x2="720" y1="220.0" y2="220.0"/><text class="m" x="0" y="224.0">0%</text><line class="grid" x1="40" x2="720" y1="170.0" y2="170.0"/><text class="m" x="0" y="174.0">5%</text><line class="grid" x1="40" x2="720" y1="120.0" y2="120.0"/><text class="m" x="0" y="124.0">10%</text><line class="grid" x1="40" x2="720" y1="70.0" y2="70.0"/><text class="m" x="0" y="74.0">15%</text><line class="grid" x1="40" x2="720" y1="20.0" y2="20.0"/><text class="m" x="0" y="24.0">20%</text><rect class="bar g" x="109.5" y="30.0" width="46.0" height="190.0" rx="5"/><text class="m" x="132.5" y="24.0" text-anchor="middle" style="fill:#15171B;font-weight:600">19%</text><text class="s" x="132.5" y="242" text-anchor="middle">Called &lt; 1 hr</text><rect class="bar " x="274.5" y="110.0" width="46.0" height="110.0" rx="5"/><text class="m" x="297.5" y="104.0" text-anchor="middle" style="fill:#15171B;font-weight:600">11%</text><text class="s" x="297.5" y="242" text-anchor="middle">1–24 hrs</text><rect class="bar " x="439.5" y="160.0" width="46.0" height="60.0" rx="5"/><text class="m" x="462.5" y="154.0" text-anchor="middle" style="fill:#15171B;font-weight:600">6%</text><text class="s" x="462.5" y="242" text-anchor="middle">1–3 days</text><rect class="bar a" x="604.5" y="190.0" width="46.0" height="30.0" rx="5"/><text class="m" x="627.5" y="184.0" text-anchor="middle" style="fill:#15171B;font-weight:600">3%</text><text class="s" x="627.5" y="242" text-anchor="middle">3+ days</text></svg><figcaption><b>FIG 1</b>Booking rate by time to first call. Hot leads went cold within a day.</figcaption></figure>
+<div class="pull">Calling everyone faster was impossible. Calling the right people first was not.</div></section><section id="model"><span class="k">03</span><h2>The scoring model</h2>
+<p>Version 1 was a rule-based score we could explain to the sales floor in one slide. Once it was trusted, version 2 swapped in a logistic regression trained on the same <span class="n">6</span> months of outcomes.</p>
+<figure><svg class="dg" viewBox="0 0 720 180" role="img" aria-label="Scoring signal weights"><text class="s" x="0" y="23" style="font-size:13px;fill:#15171B">Intake date within 60 days</text><rect class="bar l" x="230" y="10" width="420" height="18" rx="5" opacity=".35"/><rect class="bar a" x="230" y="10" width="370.6" height="18" rx="5"/><text class="m" x="608.6" y="23" style="fill:#15171B;font-weight:600">30</text><text class="s" x="0" y="57" style="font-size:13px;fill:#15171B">University offer confirmed</text><rect class="bar l" x="230" y="44" width="420" height="18" rx="5" opacity=".35"/><rect class="bar " x="230" y="44" width="296.5" height="18" rx="5"/><text class="m" x="534.5" y="57" style="fill:#15171B;font-weight:600">24</text><text class="s" x="0" y="91" style="font-size:13px;fill:#15171B">Budget matches inventory</text><rect class="bar l" x="230" y="78" width="420" height="18" rx="5" opacity=".35"/><rect class="bar " x="230" y="78" width="222.4" height="18" rx="5"/><text class="m" x="460.4" y="91" style="fill:#15171B;font-weight:600">18</text><text class="s" x="0" y="125" style="font-size:13px;fill:#15171B">Visa stage</text><rect class="bar l" x="230" y="112" width="420" height="18" rx="5" opacity=".35"/><rect class="bar " x="230" y="112" width="185.3" height="18" rx="5"/><text class="m" x="423.3" y="125" style="fill:#15171B;font-weight:600">15</text><text class="s" x="0" y="159" style="font-size:13px;fill:#15171B">Engagement (pages, replies)</text><rect class="bar l" x="230" y="146" width="420" height="18" rx="5" opacity=".35"/><rect class="bar " x="230" y="146" width="160.6" height="18" rx="5"/><text class="m" x="398.6" y="159" style="fill:#15171B;font-weight:600">13</text></svg><figcaption><b>FIG 2</b>Signal weights in v1, out of 100. Intake date and offer status mattered most.</figcaption></figure>
+<div class="tbl-wrap"><table class="opts"><thead><tr><th>Option</th><th>Upside</th><th>Downside</th><th>Call</th></tr></thead><tbody>
+<tr><td>Hire more counsellors</td><td>Simple</td><td>Expensive; same FIFO problem</td><td>No</td></tr>
+<tr class="pick"><td>Rule-based score, then ML</td><td>Explainable first, accurate later</td><td>Two builds</td><td><span class="pk">PICKED</span></td></tr>
+<tr><td>Buy a CRM scoring add-on</td><td>Fast</td><td>Generic signals, no study-abroad context</td><td>No</td></tr>
+</tbody></table></div></section><section id="routing"><span class="k">04</span><h2>Routing, not just scoring</h2>
+<p>A score in a spreadsheet changes nothing. The product was the routing.</p>
+<figure><svg class="dg" viewBox="0 0 720 94" role="img" aria-label="Lead routing flow"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#555B66"/></marker></defs><rect class="box " x="0.0" y="10" width="160.5" height="74" rx="12"/><text class="t" x="14.0" y="38">New lead</text><text class="s" x="14.0" y="58">Web, partner</text><text class="s" x="14.0" y="73">or campaign</text><path class="arr" d="M163.5 47.0 h19" marker-end="url(#ah)"/><rect class="box hl" x="186.5" y="10" width="160.5" height="74" rx="12"/><text class="t hlt" x="200.5" y="38">Score 0–100</text><text class="s hlt" x="200.5" y="58">Rules v1,</text><text class="s hlt" x="200.5" y="73">regression v2</text><path class="arr" d="M350.0 47.0 h19" marker-end="url(#ah)"/><rect class="box good" x="373.0" y="10" width="160.5" height="74" rx="12"/><text class="t" x="387.0" y="38">Hot (70+)</text><text class="s" x="387.0" y="58">Counsellor within</text><text class="s" x="387.0" y="73">10 minutes</text><path class="arr" d="M536.5 47.0 h19" marker-end="url(#ah)"/><rect class="box warm" x="559.5" y="10" width="160.5" height="74" rx="12"/><text class="t" x="573.5" y="38">Warm (40–69)</text><text class="s" x="573.5" y="58">WhatsApp first touch,</text><text class="s" x="573.5" y="73">call same day</text></svg><figcaption><b>FIG 3</b>Hot leads get a person; warm leads get WhatsApp first; cold leads go into a nurture journey.</figcaption></figure></section><section id="impact"><span class="k">05</span><h2>Impact</h2>
+<div class="results">
+<div class="result"><div class="v">10 min</div><p>speed-to-lead for hot leads, down from 2–3 days.</p></div>
+<div class="result"><div class="v">+44%</div><p>lead-to-booking conversion, from a base of <button class="redact" data-case="Lead scoring" data-owner="University Living" data-metric="conversion rate" aria-label="Hidden number, click to see why"><span>█%</span></button> to <button class="redact" data-case="Lead scoring" data-owner="University Living" data-metric="conversion rate" aria-label="Hidden number, click to see why"><span>██%</span></button>.</p></div>
+<div class="result"><div class="v"><span class="n">+44%</span></div><p>bookings from the same lead volume and the same team.</p></div>
+<div class="result"><div class="v"><span class="n">6 hrs</span></div><p>saved per counsellor each week on cold calls.</p></div>
+</div></section><section id="next"><span class="k">06</span><h2>What I learned</h2>
+<ul>
+<li>Ship the explainable version first. Counsellors trusted rules they understood, which earned the right to ship the model.</li>
+<li>The workflow is the product. Scoring without routing would have been a dashboard nobody opened.</li>
+</ul></section>
+      <a class="next-case" href="job-bot.html"><div><span class="mono">Next case file</span><span class="t">job-bot</span></div><span class="arr">→</span></a>
+    </article>
+  </div>
+</div>
+</main>
+<div class="toast" id="toast" role="status"></div>
+<script src="../assets/app.js"></script>
+</body>
+</html>

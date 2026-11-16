@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PrepLadder funnel case study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Bangers&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html"><span class="dot" aria-hidden="true"></span>Hardik Jain</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../index.html#work">All work</a>
+      <a class="cta" href="../index.html#contact">Say hello</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="wrap">
+  <div class="c-hero">
+    <a class="back-link" href="../index.html#work">← All case files</a>
+    <div class="eyebrow mono">PrepLadder by Unacademy · Sole PM · 2025–26</div>
+    <h1>Two leaks in one funnel, and why the second one mattered more</h1>
+    <p class="deck">Sales were flat and the plan was another discount. An audit of the whole funnel found two leaks instead: an OTP screen losing a third of new users, and a checkout failing for nearly a third of buyers. Fixing both grew signups 18% and lifted subscription revenue by an amount that stays under NDA.</p>
+    <div class="c-metrics"><div class="c-metric hl"><div class="v">+18%</div><div class="l">new-user signups, A/B tested</div></div><div class="c-metric"><div class="v"><button class="redact" data-case="PrepLadder" data-owner="PrepLadder (Unacademy)" data-metric="payment success rate" aria-label="Hidden number, click to see why"><span>██ → ██%</span></button></div><div class="l">payment success rate</div></div><div class="c-metric"><div class="v"><button class="redact" data-case="PrepLadder" data-owner="PrepLadder (Unacademy)" data-metric="revenue lift" aria-label="Hidden number, click to see why"><span>+█%</span></button></div><div class="l">subscription revenue, about <button class="redact" data-case="PrepLadder" data-owner="PrepLadder (Unacademy)" data-metric="monthly revenue impact" aria-label="Hidden number, click to see why"><span>₹██L</span></button> a month</div></div><div class="c-metric"><div class="v"><button class="redact" data-case="PrepLadder" data-owner="PrepLadder (Unacademy)" data-metric="paying learners" aria-label="Hidden number, click to see why"><span>██K</span></button></div><div class="l">paying learners on the app</div></div></div>
+    <div class="c-meta"><div><h5>Role</h5><p>Sole PM for the whole app: discovery, PRDs, experiments, rollout</p></div><div><h5>Team</h5><span class="n">6</span> engineers, 1 designer, QA, growth, finance</div><div><h5>Timeline</h5><span class="n">14</span> weeks, two releases</div><div><h5>Links</h5><a href="https://www.prepladder.com/app" target="_blank" rel="noopener">PrepLadder app ↗</a><a href="https://www.prepladder.com/courses/medical-pg/plan" target="_blank" rel="noopener">Plans page ↗</a></div></div>
+  </div>
+  <div class="c-body">
+    <nav class="toc" aria-label="On this page"><h5>On this page</h5><a href="#context">Context</a><a href="#problem">The problem behind the problem</a><a href="#onboarding">Fix 1: the first two minutes</a><a href="#payments">Fix 2: the checkout nobody looked at</a><a href="#impact">Impact</a><a href="#next">What I learned</a></nav>
+    <article class="article">
+      <div class="tldr"><h4>The short version</h4><p>Demand was not the problem. The funnel was. I mapped install → signup → trial → paid, found the two biggest drop-offs, and fixed them in order of revenue impact: onboarding first (signups +18%), then payments (success <button class="redact" data-case="PrepLadder" data-owner="PrepLadder (Unacademy)" data-metric="payment success rate" aria-label="Hidden number, click to see why"><span>██%</span></button> → <button class="redact" data-case="PrepLadder" data-owner="PrepLadder (Unacademy)" data-metric="payment success rate" aria-label="Hidden number, click to see why"><span>██%</span></button>). No discount needed.</p></div>
+      <section id="context"><span class="k">01</span><h2>Context</h2>
+<p>PrepLadder helps doctors prepare for NEET PG and FMGE, two exams that decide their specialisation. It has 200K+ active learners and a paying base I can't print here. I was the only PM on the app.</p>
+<p>Exam season is when people buy. In the season before I joined, sales had flattened, and the default playbook was a bigger discount. Discounts move the number for a week and train users to wait for the next one.</p></section><section id="problem"><span class="k">02</span><h2>The problem behind the problem</h2>
+<p>Before agreeing to a discount, I wanted to know where people were dropping out. I combined event data with <span class="n">40</span> session replays and <span class="n">12</span> calls with users who had installed but never paid.</p>
+<figure><svg class="dg" viewBox="0 0 720 254" role="img" aria-label="PrepLadder funnel before and after"><text class="m" x="120" y="12">BEFORE</text><text class="m" x="440.0" y="12">AFTER</text><text class="t" x="0" y="46" style="font-size:13.5px">Install</text><rect class="bar l" x="120" y="30" width="280.0" height="24" rx="6" opacity=".35"/><rect class="bar " x="120" y="30" width="280.0" height="24" rx="6"/><text class="m" x="406.0" y="46" style="fill:#15171B;font-weight:600">100</text><rect class="bar l" x="440.0" y="30" width="280.0" height="24" rx="6" opacity=".35"/><rect class="bar " x="440.0" y="30" width="280.0" height="24" rx="6"/><text class="m" x="726.0" y="46" style="fill:#15171B;font-weight:600">100</text><text class="t" x="0" y="92" style="font-size:13.5px">Sign up</text><rect class="bar l" x="120" y="76" width="280.0" height="24" rx="6" opacity=".35"/><rect class="bar " x="120" y="76" width="173.6" height="24" rx="6"/><text class="m" x="299.6" y="92" style="fill:#15171B;font-weight:600">62</text><rect class="bar l" x="440.0" y="76" width="280.0" height="24" rx="6" opacity=".35"/><rect class="bar g" x="440.0" y="76" width="204.4" height="24" rx="6"/><text class="m" x="650.4" y="92" style="fill:#15171B;font-weight:600">73</text><text class="t" x="0" y="138" style="font-size:13.5px">Start a trial</text><rect class="bar l" x="120" y="122" width="280.0" height="24" rx="6" opacity=".35"/><rect class="bar " x="120" y="122" width="117.6" height="24" rx="6"/><text class="m" x="243.6" y="138" style="fill:#15171B;font-weight:600">42</text><rect class="bar l" x="440.0" y="122" width="280.0" height="24" rx="6" opacity=".35"/><rect class="bar g" x="440.0" y="122" width="140.0" height="24" rx="6"/><text class="m" x="586.0" y="138" style="fill:#15171B;font-weight:600">50</text><text class="t" x="0" y="184" style="font-size:13.5px">Reach checkout</text><rect class="bar l" x="120" y="168" width="280.0" height="24" rx="6" opacity=".35"/><rect class="bar " x="120" y="168" width="86.8" height="24" rx="6"/><text class="m" x="212.8" y="184" style="fill:#15171B;font-weight:600">31</text><rect class="bar l" x="440.0" y="168" width="280.0" height="24" rx="6" opacity=".35"/><rect class="bar g" x="440.0" y="168" width="103.6" height="24" rx="6"/><text class="m" x="549.6" y="184" style="fill:#15171B;font-weight:600">37</text><text class="t" x="0" y="230" style="font-size:13.5px">Pay</text><rect class="bar l" x="120" y="214" width="280.0" height="24" rx="6" opacity=".35"/><rect class="bar " x="120" y="214" width="61.6" height="24" rx="6"/><text class="m" x="187.6" y="230" style="fill:#15171B;font-weight:600">22</text><rect class="bar l" x="440.0" y="214" width="280.0" height="24" rx="6" opacity=".35"/><rect class="bar g" x="440.0" y="214" width="89.6" height="24" rx="6"/><text class="m" x="535.6" y="230" style="fill:#15171B;font-weight:600">32</text></svg><figcaption><b>FIG 1</b>Per 100 installs, before and after both fixes. Illustrative cohort sizes; rates match the shipped results.</figcaption></figure>
+<div class="pull">People weren't saying no to the price. Most never got far enough to see it.</div>
+<p>Two leaks stood out. <span class="n">34%</span> of new users dropped at OTP verification. And of everyone who tried to pay, <button class="redact" data-case="PrepLadder" data-owner="PrepLadder (Unacademy)" data-metric="failed payment rate" aria-label="Hidden number, click to see why"><span>██%</span></button> failed and didn't come back.</p></section><section id="onboarding"><span class="k">03</span><h2>Fix 1: the first two minutes</h2>
+<p>Replays showed the same story again and again. OTPs arriving late on busy networks, users switching apps to find the code and not returning, then a seven-question profile before seeing a single lecture.</p>
+<ul>
+<li><b>One-tap login</b> with Google and Truecaller, with OTP as the fallback rather than the only door.</li>
+<li><b>Deferred profiling.</b> We asked only for the exam on day one. Everything else came after the first lecture.</li>
+<li><b>Exam-first Home.</b> A new user landed on content for their exam and attempt year, not a generic catalogue.</li>
+</ul>
+<p>We ran it as a 50/50 A/B test for <span class="n">2</span> weeks. Signups rose 18%, OTP drop-off fell from <span class="n">34%</span> to <span class="n">19%</span>, and day-1 retention went from <span class="n">41%</span> to <span class="n">47%</span>.</p></section><section id="payments"><span class="k">04</span><h2>Fix 2: the checkout nobody looked at</h2>
+<p>Payments sat between product and finance, so nobody owned the failure rate. I pulled <span class="n">90</span> days of gateway logs and grouped every failed attempt by cause.</p>
+<figure><svg class="dg" viewBox="0 0 720 180" role="img" aria-label="Causes of failed payments"><text class="s" x="0" y="23" style="font-size:13px;fill:#15171B">UPI timeout, no retry</text><rect class="bar l" x="210" y="10" width="440" height="18" rx="5" opacity=".35"/><rect class="bar a" x="210" y="10" width="400.9" height="18" rx="5"/><text class="m" x="618.9" y="23" style="fill:#15171B;font-weight:600">41%</text><text class="s" x="0" y="57" style="font-size:13px;fill:#15171B">OTP failure at login</text><rect class="bar l" x="210" y="44" width="440" height="18" rx="5" opacity=".35"/><rect class="bar " x="210" y="44" width="215.1" height="18" rx="5"/><text class="m" x="433.1" y="57" style="fill:#15171B;font-weight:600">22%</text><text class="s" x="0" y="91" style="font-size:13px;fill:#15171B">Forced re-login before paying</text><rect class="bar l" x="210" y="78" width="440" height="18" rx="5" opacity=".35"/><rect class="bar " x="210" y="78" width="176.0" height="18" rx="5"/><text class="m" x="394.0" y="91" style="fill:#15171B;font-weight:600">18%</text><text class="s" x="0" y="125" style="font-size:13px;fill:#15171B">EMI options hidden</text><rect class="bar l" x="210" y="112" width="440" height="18" rx="5" opacity=".35"/><rect class="bar " x="210" y="112" width="117.3" height="18" rx="5"/><text class="m" x="335.3" y="125" style="fill:#15171B;font-weight:600">12%</text><text class="s" x="0" y="159" style="font-size:13px;fill:#15171B">Other</text><rect class="bar l" x="210" y="146" width="440" height="18" rx="5" opacity=".35"/><rect class="bar l" x="210" y="146" width="68.4" height="18" rx="5"/><text class="m" x="286.4" y="159" style="fill:#15171B;font-weight:600">7%</text></svg><figcaption><b>FIG 2</b>Why payments failed. Four causes explained 93% of failures, and none of them were about price.</figcaption></figure>
+<div class="tbl-wrap"><table class="opts"><thead><tr><th>Fix</th><th>Effort</th><th>Expected lift</th><th>Order</th></tr></thead><tbody>
+<tr class="pick"><td>UPI intent + automatic retry</td><td>Low</td><td>Highest: biggest failure cause</td><td><span class="pk">1ST</span></td></tr>
+<tr class="pick"><td>Keep users signed in through checkout</td><td>Low</td><td>Medium</td><td><span class="pk">2ND</span></td></tr>
+<tr class="pick"><td>WhatsApp OTP fallback</td><td>Medium</td><td>Medium</td><td><span class="pk">3RD</span></td></tr>
+<tr class="pick"><td>Show EMI and saved methods upfront</td><td>Medium</td><td>Lower, but helps high-ticket plans</td><td><span class="pk">4TH</span></td></tr>
+</tbody></table></div>
+<p>Payment success went from <button class="redact" data-case="PrepLadder" data-owner="PrepLadder (Unacademy)" data-metric="payment success rate" aria-label="Hidden number, click to see why"><span>██%</span></button> to <button class="redact" data-case="PrepLadder" data-owner="PrepLadder (Unacademy)" data-metric="payment success rate" aria-label="Hidden number, click to see why"><span>██%</span></button>. That added about <button class="redact" data-case="PrepLadder" data-owner="PrepLadder (Unacademy)" data-metric="monthly revenue impact" aria-label="Hidden number, click to see why"><span>₹██L</span></button> a month, roughly <button class="redact" data-case="PrepLadder" data-owner="PrepLadder (Unacademy)" data-metric="revenue lift" aria-label="Hidden number, click to see why"><span>█%</span></button> of subscription revenue, with no change in price.</p></section><section id="impact"><span class="k">05</span><h2>Impact</h2>
+<div class="results">
+<div class="result"><div class="v">+18%<small>A/B</small></div><p>new-user signups after the onboarding rebuild.</p></div>
+<div class="result"><div class="v"><button class="redact" data-case="PrepLadder" data-owner="PrepLadder (Unacademy)" data-metric="payment success rate" aria-label="Hidden number, click to see why"><span>██%</span></button></div><p>payment success, up from <button class="redact" data-case="PrepLadder" data-owner="PrepLadder (Unacademy)" data-metric="payment success rate" aria-label="Hidden number, click to see why"><span>██%</span></button>.</p></div>
+<div class="result"><div class="v"><button class="redact" data-case="PrepLadder" data-owner="PrepLadder (Unacademy)" data-metric="monthly revenue impact" aria-label="Hidden number, click to see why"><span>₹██L</span></button></div><p>added to monthly subscription revenue.</p></div>
+<div class="result"><div class="v">0</div><p>extra discounts needed that season.</p></div>
+</div></section><section id="next"><span class="k">06</span><h2>What I learned</h2>
+<ul>
+<li>Audit the whole funnel before touching any step. The most visible problem (signups) wasn't the most expensive one (payments).</li>
+<li>Find the orphan metric. Payment success sat between two teams, so nobody watched it. Owning it was the biggest win.</li>
+<li>Ask for the replay, not the report. Dashboards showed where people left; replays showed why.</li>
+</ul></section>
+      <a class="next-case" href="ask-data.html"><div><span class="mono">Next case file</span><span class="t">Ask Data</span></div><span class="arr">→</span></a>
+    </article>
+  </div>
+</div>
+</main>
+<div class="toast" id="toast" role="status"></div>
+<script src="../assets/app.js"></script>
+</body>
+</html>
