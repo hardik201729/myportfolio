@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ask Data case study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Bangers&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html"><span class="dot" aria-hidden="true"></span>Hardik Jain</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../index.html#work">All work</a>
+      <a class="cta" href="../index.html#contact">Say hello</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="wrap">
+  <div class="c-hero">
+    <a class="back-link" href="../index.html#work">← All case files</a>
+    <div class="eyebrow mono">PrepLadder · Sole PM · internal AI tool · 2025</div>
+    <h1>Leaders waited two days for numbers they needed in two minutes</h1>
+    <p class="deck">The request was another analyst. The data showed most questions were the same few dozen, asked again and again. We built a self-serve LLM data assistant on a curated metric layer that now answers 80–90% of recurring questions from the CBO, CMO, CTO and their teams.</p>
+    <div class="c-metrics"><div class="c-metric hl"><div class="v">80–90%</div><div class="l">of recurring data questions answered without an analyst</div></div><div class="c-metric"><div class="v"><span class="n">1–2 days</span> → <span class="n"><2 min</span></div><div class="l">turnaround for a data question</div></div><div class="c-metric"><div class="v">15–20</div><div class="l">queries per user each day</div></div><div class="c-metric"><div class="v"><span class="n">~70 hrs</span></div><div class="l">analyst time saved per week</div></div></div>
+    <div class="c-meta"><div><h5>Role</h5><p>Problem framing, PRD, prompt iteration, accuracy checks, PII rules</p></div><div><h5>Team</h5><span class="n">1</span> data engineer, <span class="n">1</span> backend engineer, analytics team as reviewers</div><div><h5>Timeline</h5><span class="n">8</span> weeks to v1</div><div><h5>Links</h5><p>Internal tool, demo on request</p></div></div>
+  </div>
+  <div class="c-body">
+    <nav class="toc" aria-label="On this page"><h5>On this page</h5><a href="#context">Context</a><a href="#problem">The problem behind the problem</a><a href="#build">What we built</a><a href="#impact">Impact</a><a href="#next">What I learned</a></nav>
+    <article class="article">
+      <div class="tldr"><h4>The short version</h4><p>The analyst team had become a human cache for the same <span class="n">40</span> questions. Instead of hiring, we put those questions behind an LLM that writes SQL against a curated metric layer, checks itself against golden answers and masks PII. Now 80–90% of questions answer themselves.</p></div>
+      <section id="context"><span class="k">01</span><h2>Context</h2>
+<p>Leadership at PrepLadder made daily decisions on numbers: signups by city, paid conversion by plan, which live class was losing viewers. Every one of those numbers went through a <span class="n">3</span>-person analytics team.</p>
+<p>Questions waited one to two days. Analysts spent their weeks on repeat requests instead of the deeper analysis they were hired for. The ask was to hire another analyst.</p></section><section id="problem"><span class="k">02</span><h2>The problem behind the problem</h2>
+<p>I logged every data request for <span class="n">3</span> weeks: who asked, what they asked and how the analyst answered it. <span class="n">640</span> requests later, the shape was obvious.</p>
+<figure><svg class="dg" viewBox="0 0 720 260" role="img" aria-label="Share of requests by question rank"><line class="grid" x1="40" x2="720" y1="220.0" y2="220.0"/><text class="m" x="0" y="224.0">0%</text><line class="grid" x1="40" x2="720" y1="170.0" y2="170.0"/><text class="m" x="0" y="174.0">12%</text><line class="grid" x1="40" x2="720" y1="120.0" y2="120.0"/><text class="m" x="0" y="124.0">25%</text><line class="grid" x1="40" x2="720" y1="70.0" y2="70.0"/><text class="m" x="0" y="74.0">38%</text><line class="grid" x1="40" x2="720" y1="20.0" y2="20.0"/><text class="m" x="0" y="24.0">50%</text><rect class="bar a" x="109.5" y="36.0" width="46.0" height="184.0" rx="5"/><text class="m" x="132.5" y="30.0" text-anchor="middle" style="fill:#15171B;font-weight:600">46%</text><text class="s" x="132.5" y="242" text-anchor="middle">Top 10</text><rect class="bar " x="274.5" y="76.0" width="46.0" height="144.0" rx="5"/><text class="m" x="297.5" y="70.0" text-anchor="middle" style="fill:#15171B;font-weight:600">36%</text><text class="s" x="297.5" y="242" text-anchor="middle">11–40</text><rect class="bar l" x="439.5" y="172.0" width="46.0" height="48.0" rx="5"/><text class="m" x="462.5" y="166.0" text-anchor="middle" style="fill:#15171B;font-weight:600">12%</text><text class="s" x="462.5" y="242" text-anchor="middle">41–100</text><rect class="bar l" x="604.5" y="196.0" width="46.0" height="24.0" rx="5"/><text class="m" x="627.5" y="190.0" text-anchor="middle" style="fill:#15171B;font-weight:600">6%</text><text class="s" x="627.5" y="242" text-anchor="middle">Long tail</text></svg><figcaption><b>FIG 1</b>The top 40 question templates made up 82% of all requests. The rest needed a human anyway.</figcaption></figure>
+<div class="pull">We didn't have an analyst shortage. We had a repetition problem.</div></section><section id="build"><span class="k">03</span><h2>What we built</h2>
+<p>The key decision was what the model could see. Letting an LLM write SQL against raw production tables is how you get confident wrong numbers. We gave it a curated metric layer instead: <span class="n">60</span> defined metrics, each with an owner and a tested SQL definition.</p>
+<figure><svg class="dg" viewBox="0 0 720 212" role="img" aria-label="Ask Data request flow"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#555B66"/></marker></defs><rect class="box " x="0.0" y="10" width="160.5" height="74" rx="12"/><text class="t" x="14.0" y="38">Ask in plain English</text><text class="s" x="14.0" y="58">Slack or web</text><path class="arr" d="M163.5 47.0 h19" marker-end="url(#ah)"/><rect class="box warm" x="186.5" y="10" width="160.5" height="74" rx="12"/><text class="t" x="200.5" y="38">Match to a metric</text><text class="s" x="200.5" y="58">Curated layer,</text><text class="s" x="200.5" y="73">60 tested metrics</text><path class="arr" d="M350.0 47.0 h19" marker-end="url(#ah)"/><rect class="box hl" x="373.0" y="10" width="160.5" height="74" rx="12"/><text class="t hlt" x="387.0" y="38">LLM writes SQL</text><text class="s hlt" x="387.0" y="58">Only against</text><text class="s hlt" x="387.0" y="73">approved views</text><path class="arr" d="M536.5 47.0 h19" marker-end="url(#ah)"/><rect class="box warm" x="559.5" y="10" width="160.5" height="74" rx="12"/><text class="t" x="573.5" y="38">Validate</text><text class="s" x="573.5" y="58">Read-only · row limit</text><text class="s" x="573.5" y="73">PII columns masked</text><path class="arr" d="M639.8 86 v14 H80.2 v24" marker-end="url(#ah)"/><rect class="box warm" x="0.0" y="128" width="160.5" height="74" rx="12"/><text class="t" x="14.0" y="156">Check vs golden</text><text class="s" x="14.0" y="176">Known answers for</text><text class="s" x="14.0" y="191">top questions</text><path class="arr" d="M163.5 165.0 h19" marker-end="url(#ah)"/><rect class="box good" x="186.5" y="128" width="160.5" height="74" rx="12"/><text class="t" x="200.5" y="156">Answer + SQL</text><text class="s" x="200.5" y="176">Number, chart and</text><text class="s" x="200.5" y="191">the query used</text><path class="arr" d="M350.0 165.0 h19" marker-end="url(#ah)"/><rect class="box " x="373.0" y="128" width="160.5" height="74" rx="12"/><text class="t" x="387.0" y="156">Not sure?</text><text class="s" x="387.0" y="176">Route to an analyst</text><text class="s" x="387.0" y="191">with context</text><path class="arr" d="M536.5 165.0 h19" marker-end="url(#ah)"/><rect class="box " x="559.5" y="128" width="160.5" height="74" rx="12"/><text class="t" x="573.5" y="156">Feedback</text><text class="s" x="573.5" y="176">👍/👎 improves</text><text class="s" x="573.5" y="191">the metric layer</text></svg><figcaption><b>FIG 2</b>Every answer shows the SQL it ran, so anyone can check it.</figcaption></figure>
+<h3>Guardrails</h3>
+<ul>
+<li><b>PII never leaves the warehouse.</b> Phone numbers, emails and payment details were masked at the view level, so the model never saw them.</li>
+<li><b>Role-based access.</b> A marketing manager could ask about campaigns, not payroll.</li>
+<li><b>Show your work.</b> Every answer came with its SQL and the metric definition. Trust came from transparency, not from a confidence score.</li>
+</ul></section><section id="impact"><span class="k">04</span><h2>Impact</h2>
+<div class="results">
+<div class="result"><div class="v">80–90%</div><p>of recurring questions answered without an analyst.</p></div>
+<div class="result"><div class="v"><span class="n"><2 min</span></div><p>to answer, down from <span class="n">1–2 days</span>.</p></div>
+<div class="result"><div class="v">15–20</div><p>queries per user per day across leadership and cross-functional teams.</p></div>
+<div class="result"><div class="v"><span class="n">~70 hrs</span></div><p>of analyst time freed each week, spent on deep-dive work instead. No new hire needed.</p></div>
+</div></section><section id="next"><span class="k">05</span><h2>What I learned</h2>
+<ul>
+<li>Log before you build. Three weeks of request logs were worth more than any brainstorm.</li>
+<li>Constrain the model. The curated metric layer did more for accuracy than prompt engineering.</li>
+<li>Adoption follows trust, and trust follows transparency. Showing the SQL made sceptics into daily users.</li>
+</ul></section>
+      <a class="next-case" href="lead-scoring.html"><div><span class="mono">Next case file</span><span class="t">Lead scoring</span></div><span class="arr">→</span></a>
+    </article>
+  </div>
+</div>
+</main>
+<div class="toast" id="toast" role="status"></div>
+<script src="../assets/app.js"></script>
+</body>
+</html>
